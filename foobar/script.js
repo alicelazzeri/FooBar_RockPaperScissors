@@ -17,8 +17,10 @@ for (let i = 1; i <= 100; i++) {
   let paragraph = document.createElement("p");
   paragraph.textContent = output;
   paragraph.classList.add("paragraph");
-  container.appendChild(paragraph);
+
   if (output === "Foo" || output === "Bar" || output === "FooBar") {
     paragraph.classList.add("boldFB");
   }
+
+  container.appendChild(paragraph);
 }
