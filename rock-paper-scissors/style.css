@@ -13,11 +13,7 @@ html {
 body {
   font-family: "Clash Display";
   font-weight: 400;
-  background: linear-gradient(
-    90deg,
-    rgba(245, 131, 38, 0.5780305891238671) 0%,
-    rgba(237, 49, 231, 0.5870940332326284) 100%
-  );
+  background: linear-gradient(90deg, rgba(245, 131, 38, 0.578) 0%, rgba(237, 49, 231, 0.587) 100%);
 }
 
 .container {
@@ -46,6 +42,12 @@ body {
 }
 
 /* Options buttons */
+
+#options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .optionBtn {
   border: none;
@@ -78,14 +80,8 @@ body {
   font-size: 1.5rem;
 }
 
-#playerResult {
-  text-align: center;
-}
-
-#machineResult {
-  text-align: center;
-}
-
+#playerResult,
+#machineResult,
 #finalResult {
   text-align: center;
 }

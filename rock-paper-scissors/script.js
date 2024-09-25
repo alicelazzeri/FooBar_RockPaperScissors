@@ -1,4 +1,4 @@
-// Dynamic title logic via Typed.js
+// Typed.js dynamic title logic
 
 let typed = new Typed(".dynamic-title", {
   strings: ["Rock", "Paper", "Scissors"],
@@ -15,12 +15,12 @@ const machineResult = document.getElementById("machineResult");
 const finalResult = document.getElementById("finalResult");
 const playerScore = document.getElementById("playerScore");
 const machineScore = document.getElementById("machineScore");
+const scoreDisplay = document.querySelectorAll(".scoreDisplay");
 let pScore = 0;
 let mScore = 0;
 let maxScore = 10;
 
-// Function to disable buttons at the end of each round before its reset
-
+// Function to disable buttons at the end of each round
 const disableButtons = function () {
   const buttons = document.querySelectorAll(".optionBtn");
   buttons.forEach(button => {
@@ -29,7 +29,6 @@ const disableButtons = function () {
 };
 
 // Function to reset game at the end of every round
-
 const resetGame = function () {
   pScore = 0;
   mScore = 0;
@@ -39,14 +38,13 @@ const resetGame = function () {
   machineResult.textContent = "🕹️ Machine";
   finalResult.classList.remove("resultActive");
   finalResult.textContent = "";
-  const buttons = document.querySelectorAll(".optionsBtn");
+  const buttons = document.querySelectorAll(".optionBtn");
   buttons.forEach(button => {
     button.disabled = false;
   });
 };
 
-// Function to play the game
-
+// Function to play the game between player and machine
 const playGame = function (playerChoice) {
   if (pScore >= maxScore || mScore >= maxScore) return;
   const rndmCounter = Math.floor(Math.random() * 3);
@@ -86,7 +84,7 @@ const playGame = function (playerChoice) {
 
   if (pScore === maxScore) {
     finalResult.textContent = "🥇 Congrats! You won the match! 🎊";
-    finalResult.classList.add("resultActive;");
+    finalResult.classList.add("resultActive");
     setTimeout(() => {
       party();
     }, 100);
@@ -101,8 +99,61 @@ const playGame = function (playerChoice) {
   }
 };
 
-// Emoji funfetti via JSConfetti
+// Function to handle auto-play between two machines
+const autoPlay = function () {
+  if (pScore >= maxScore || mScore >= maxScore) return;
+  const rndmCounter1 = Math.floor(Math.random() * 3);
+  const rndmCounter2 = Math.floor(Math.random() * 3);
+  const machineChoice1 = options[rndmCounter1];
+  const machineChoice2 = options[rndmCounter2];
+  let result = "";
 
+  if (machineChoice1 === machineChoice2) {
+    result = "The game ended in a draw. 🟰";
+  } else {
+    switch (machineChoice1) {
+      case "rock":
+        result = machineChoice2 === "scissors" ? "Machine 1 won. 🚀" : "Machine 2 won. 🚀";
+        break;
+      case "paper":
+        result = machineChoice2 === "rock" ? "Machine 1 won. 🚀" : "Machine 2 won. 🚀";
+        break;
+      case "scissors":
+        result = machineChoice2 === "paper" ? "Machine 1 won. 🚀" : "Machine 2 won. 🚀";
+        break;
+    }
+  }
+
+  playerResult.textContent = `🕹️ Machine 1 - ${machineChoice1}`;
+  machineResult.textContent = `🕹️ Machine 2 - ${machineChoice2}`;
+  finalResult.textContent = result;
+
+  if (result.includes("Machine 1 won")) {
+    pScore++;
+    playerScore.textContent = pScore;
+  } else if (result.includes("Machine 2 won")) {
+    mScore++;
+    machineScore.textContent = mScore;
+  }
+
+  if (pScore === maxScore) {
+    finalResult.textContent = "🥇 Machine 1 wins the match! 🎊";
+    finalResult.classList.add("resultActive");
+    setTimeout(() => {
+      party();
+    }, 100);
+  } else if (mScore === maxScore) {
+    finalResult.textContent = "💥 Machine 2 wins the match... 😥";
+  }
+
+  if (result) {
+    finalResult.classList.add("resultActive");
+  } else {
+    finalResult.classList.remove("resultActive");
+  }
+};
+
+// Emoji confetti logic
 const canvas = document.getElementById("funfettiEmoji");
 const jsConfetti = new JSConfetti();
 const party = function () {
