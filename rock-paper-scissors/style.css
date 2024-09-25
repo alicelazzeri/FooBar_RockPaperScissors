@@ -49,6 +49,14 @@ body {
   align-items: center;
 }
 
+.playerOptions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 .optionBtn {
   border: none;
   background-color: transparent;
@@ -107,19 +115,6 @@ body {
 .scoreDisplay {
   color: #5b19ab;
   font-weight: 400;
-}
-
-#playerScore,
-#machineScore {
-  font-weight: 600;
-}
-
-#playerScore {
-  color: #6dba58;
-}
-
-#machineScore {
-  color: #eb5356;
 }
 
 /* New Game Button */

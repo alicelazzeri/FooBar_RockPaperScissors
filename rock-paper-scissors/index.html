@@ -12,10 +12,12 @@
     <div class="container">
       <p class="title">Let's play <span class="dynamic-title"></span></p>
       <div id="options">
-        <div>
+        <div class="playerOptions">
           <button class="optionBtn" onclick="playGame('rock')">👊🏻</button>
           <button class="optionBtn" onclick="playGame('paper')">🖐🏻</button>
           <button class="optionBtn" onclick="playGame('scissors')">✌🏻</button>
+          <button class="optionBtn" onclick="playGame('lizard')">🦎</button>
+          <button class="optionBtn" onclick="playGame('spock')">🖖🏻</button>
         </div>
         <button class="optionBtn" id="autoPlayBtn" onclick="autoPlay()">💻</button>
       </div>
@@ -26,8 +28,8 @@
         </div>
         <p id="finalResult"></p>
         <div class="scoreContainer">
-          <p class="scoreDisplay">Player score - <span id="playerScore">0</span></p>
-          <p class="scoreDisplay">Machine score - <span id="machineScore">0</span></p>
+          <p class="scoreDisplay machine1Score">Player score - <span id="playerScore">0</span></p>
+          <p class="scoreDisplay machine2Score">Machine score - <span id="machineScore">0</span></p>
         </div>
         <button type="button" id="resetGameBtn" onclick="resetGame()">New Game</button>
       </div>
