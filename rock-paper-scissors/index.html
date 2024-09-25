@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock, Paper, Scissors</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <canvas id="funfettiEmoji"></canvas>
     <div class="container">
       <p class="title">Let's play <span class="dynamic-title"></span></p>
       <div id="options">
@@ -30,8 +32,11 @@
             <span id="machineScore">0</span>
           </p>
         </div>
+        <button type="button" id="resetGameBtn" onclick="resetGame()">New Game</button>
       </div>
+      <button class="optionBtn">💻</button>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="./script.js"></script>
   </body>
