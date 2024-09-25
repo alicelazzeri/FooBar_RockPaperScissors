@@ -1,5 +1,3 @@
-// location of the container of the loop
-
 let container = document.getElementById("container");
 
 // for loop to print numbers from 1 to 100 with conditions
@@ -16,10 +14,11 @@ for (let i = 1; i <= 100; i++) {
     output = i;
   }
 
-  // creation and styling of the paragraph in index.html
-
   let paragraph = document.createElement("p");
   paragraph.textContent = output;
   paragraph.classList.add("paragraph");
   container.appendChild(paragraph);
+  if (output === "Foo" || output === "Bar" || output === "FooBar") {
+    paragraph.classList.add("boldFB");
+  }
 }

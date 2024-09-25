@@ -1,12 +1,41 @@
+@font-face {
+  font-family: "Clash Display";
+  src: url("./assets/clash-display/ClashDisplay-Variable.ttf");
+}
+
 body {
-  text-align: center;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Clash Display";
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
 }
 
 .title {
   color: blue;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .paragraph {
-  font-weight: bold;
+  font-size: 18px;
+}
+
+.boldFB {
+  font-weight: 600;
+}
+
+.paragraph:nth-child(3n) {
+  color: red;
+}
+
+.paragraph:nth-child(5n) {
+  color: green;
+}
+
+.paragraph:nth-child(15n) {
+  color: purple;
 }
